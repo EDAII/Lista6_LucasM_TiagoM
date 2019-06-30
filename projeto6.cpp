@@ -138,7 +138,16 @@ int main() {
 
 	while(1){
 	
-		cin >> in.first >> in.second;
+		cout << endl;
+
+		cout << "Insira a posiçao inicial na matriz do tabuleiro: ";
+
+		while(1){
+			cin >> in.first >> in.second;
+			if (in.first < 1 || in.first > 8 || in.second < 1 || in.second > 8) 
+				cout << "** As posiçoes devem ser entre 1 e 8 **" << endl;
+			else break;
+		};
 
 		reset_tabuleiro();
 
@@ -146,7 +155,18 @@ int main() {
 
 		bfs(in);
 
-		cin >> out.first >> out.second;
+		cout << "Insira a posiçao final na matriz do tabuleiro: ";
+
+		while(1){
+			cin >> out.first >> out.second;
+			if (out.first < 1 || out.first > 8 || out.second < 1 || out.second > 8)
+				cout << "** As posiçoes devem ser entre 1 e 8 **" << endl;
+			else if(out.first == in.first && out.second == in.second)
+				cout << "** A posicao final é a mesma da posiçao inicial **" << endl;
+			else break;
+		};
+
+		cout << endl;
 
 		moves(out);
 
